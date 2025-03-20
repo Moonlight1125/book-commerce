@@ -3,7 +3,7 @@
 import prisma from "@/app/lib/prisma"
 import { NextResponse } from "next/server";
 
-export const GET = async(req:Request,{params}:{params:{userid:string}})=>{
+export const GET = async(req:Request, { params }: { params: Promise<{ userid: string }>})=>{
     const {userid} = await params;
     if(!userid){
         return NextResponse.json({error:'fetch failed'});
