@@ -27,7 +27,7 @@ export const POST = async(req:Request)=>{
         }else{
             return NextResponse.json({messaage:"既に購入済みです。"});
         }
-    }catch(err:any){
-        return NextResponse.json({err:err.messaage});
+    }catch(err){
+        return NextResponse.json({error:err});
     }
 }
