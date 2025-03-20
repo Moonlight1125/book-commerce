@@ -21,10 +21,6 @@ export const config:NextAuthConfig = {
     },
     adapter: PrismaAdapter(prisma), 
     secret:process.env.AUTH_SECRET,
-    basePath:"/api/auth",
-    // pages:{
-    //     signIn:"/login"
-    // }
 }
 
 export const  {handlers,auth,signIn,signOut} = NextAuth(config);
