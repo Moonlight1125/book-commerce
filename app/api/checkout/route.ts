@@ -3,7 +3,7 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const POST = async (req:Request) => {
     const { title, price ,bookId,userId} = await req.json();
     if (!title || !price || !bookId || !userId) {
         return NextResponse.json({ error: "error:we need more info" });
