@@ -19,7 +19,7 @@ const Header = async () => {
             ホーム
           </Link>
           {
-            session ?
+            session?.user ?
               <form
                 action={async()=>{
                   'use server'
