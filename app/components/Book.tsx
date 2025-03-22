@@ -31,7 +31,7 @@ const Book = ({book,isPurchased}:booktype) => {
 
   const startCheckOut  = async ()=>{
     try{
-      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
+      const req = await fetch(`https://book-commerce-sandy.vercel.app/api/checkout`,{
         method:'POST',
         headers:{
           'Content-Type':'application/json'

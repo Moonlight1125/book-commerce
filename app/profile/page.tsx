@@ -10,7 +10,7 @@ export default async function ProfilePage() {
     let purchasedBooks: contents[] = [];
 
     if (session?.user) {
-        const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/purchase/${session?.user?.id}`)
+        const req = await fetch(`https://book-commerce-sandy.vercel.app/api/purchase/${session?.user?.id}`)
             .then((res) => res.json());
         const books = await Promise.all(req.map(async (purchase: purchase) => {
             return await getDetailBooks(purchase.bookId);

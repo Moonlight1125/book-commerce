@@ -9,7 +9,7 @@ const PurchaseSuccess = () => {
   const sessionId = params.get("session_id")
   const savePruchaseHistory = async()=>{
     try{
-      const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout/success`,{
+      const req = await fetch(`https://book-commerce-sandy.vercel.app/api/checkout/success`,{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
