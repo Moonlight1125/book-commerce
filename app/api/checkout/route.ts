@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe('sk_test_51R3SxbLUnc6ePoMLdmqN9tUGOwbs92t4FpX3FCtTqvHSV3kOYtKkCjacbkfKFApHT1uhTB0ErekuHxE3hF90LTvE00M2hwpR8u');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export const POST = async (req:Request) => {
     const { title, price ,bookId,userId} = await req.json();
@@ -28,8 +28,8 @@ export const POST = async (req:Request) => {
                 },
             ],
             mode:'payment',
-            success_url:`http://localhost:3000/book/checkout-success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url:`http://localhost:3000`,
+            success_url:`${process.env.NEXT_PUBLIC_HOME_URL}/book/checkout-success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url:`${process.env.NEXT_PUBLIC_HOME_URL}}`,
         });
         return NextResponse.json({checkout_url:session.url});
     } catch(err:any){
