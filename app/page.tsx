@@ -12,7 +12,7 @@ export default async function Home() {
   let isPurchased:string[] = [];
 
   if(session?.user){
-    const req = await fetch(`http://localhost:3000/api/purchase/${session?.user?.id}`)
+    const req = await fetch(`https://book-commerce-sandy.vercel.app/api/purchase/${session?.user?.id}`)
     .then((res)=>res.json());
     const purchasedId = req.map((res:purchase)=>res.bookId)
     isPurchased=purchasedId;
