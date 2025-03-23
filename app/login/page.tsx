@@ -1,4 +1,4 @@
-import { auth, signIn } from "../../auth";
+import { auth, signIn } from "@/auth";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 async function Login() {

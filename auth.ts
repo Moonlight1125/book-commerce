@@ -20,7 +20,7 @@ export const config:NextAuthConfig = {
         },
     },
     adapter: PrismaAdapter(prisma), 
-    secret:'ZVLDnnZyQFSTOvgwn3Wr945wLOV+alZCHpirkEOjC00=',
+    secret:process.env.AUTH_SECRET,
 }
 
 export const  {handlers,auth,signIn,signOut} = NextAuth(config);
