@@ -88,15 +88,15 @@ const Book = ({book,isPurchased}:booktype) => {
         }
       `}</style>
 
-      <div className="flex flex-col items-center m-4 ">
-        <a onClick={openModal} className="cursor-pointer shadow-2xl duration-300 hover:translate-y-1 hover:shadow-none">
+      <div className="flex flex-col items-center m-4">
+        <a onClick={openModal} className="h-full cursor-pointer shadow-2xl duration-300 hover:translate-y-1 hover:shadow-none">
           <Image
             priority
             src={book.tthumbnail.url}
             alt={book.title}
             width={450}
-            height={350}
-            className="rounded-t-md"
+            height={250}
+            className="h-[250px] rounded-t-md object-cover"
           />
           <div className="px-4 py-4 bg-slate-100 rounded-b-md">
             <h2 className="text-lg font-semibold">{book.title}</h2>

@@ -9,6 +9,9 @@ export const client = createClient({
 export default async function getAllBooks(){
   const data = await client.getList<contents>({
     endpoint:'bookcommerce',
+    customRequestInit:{
+      cache:'no-store',
+    },
   })
   return data;
 }
@@ -17,6 +20,9 @@ export const getDetailBooks = async(contentId:string)=>{
   const data = await client.getListDetail<contents>({
     endpoint:'bookcommerce',
     contentId,
+    customRequestInit:{
+      cache:'no-store',
+    },
   })
   return data;
 }
