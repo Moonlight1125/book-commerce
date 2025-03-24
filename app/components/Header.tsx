@@ -38,7 +38,7 @@ const Header = async () => {
               </Link>
           }
 
-          <Link href={`/profile`}>
+          <Link href={session?.user?`/profile`:''}>
             <Image
               width={50}
               height={50}
