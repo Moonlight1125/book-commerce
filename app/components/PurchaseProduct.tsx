@@ -19,7 +19,7 @@ const PurchaseProduct = ({book}:bookType) => {
         alt={"images"}
         width={450}
         height={350}
-        className="rounded-t-md h-[350px]"
+        className="rounded-t-md h-[350px] object-cover"
       />
       <div className="px-4 py-4 bg-slate-100 rounded-b-md">
         <h2 className="text-lg font-semibold">{book.title}</h2>
