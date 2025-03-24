@@ -17,7 +17,7 @@ const PurchaseProduct = ({book}:bookType) => {
         priority
         src={book.tthumbnail.url}
         alt={"images"}
-        width={350}
+        width={450}
         height={250}
         className="rounded-t-md h-[250px] object-cover"
       />

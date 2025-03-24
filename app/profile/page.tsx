@@ -36,7 +36,7 @@ export default async function ProfilePage() {
             </div>
 
             <span className="font-medium text-lg mb-4 mt-4 block">購入した記事</span>
-            <div className="flex gap-6 items-stretch">                   
+            <div className="flex gap-6 items-stretch justify-center">                   
             {
                 purchasedBooks?.map((book:contents) => (
                     <PurchaseProduct key={book.id} book={book}/>

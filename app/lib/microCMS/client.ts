@@ -10,7 +10,9 @@ export default async function getAllBooks(){
   const data = await client.getList<contents>({
     endpoint:'bookcommerce',
     customRequestInit:{
-      cache:'no-store',
+      next:{
+        revalidate:3600,
+      }
     },
   })
   return data;
