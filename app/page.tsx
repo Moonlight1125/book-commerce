@@ -1,14 +1,15 @@
 import { SessionProvider } from "next-auth/react";
 import Book from "./components/Book";
 import getAllBooks from "./lib/microCMS/client";
-import { contents, purchase } from "./lib/types/type";
+import { contents, purchase} from "./lib/types/type";
+import type { Session } from "next-auth"
 import { auth } from "@/auth";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Home() {
   const {contents} = await getAllBooks();
-  const session = await auth();
-
+  const session:Session|null = await auth();
+  console.log(session)
   let isPurchased:string[] = [];
 
   if(session?.user){
@@ -26,7 +27,11 @@ export default async function Home() {
         </h2>
         {contents.map((book:contents) => (
           <SessionProvider key={book.id}>
-            <Book book={book} isPurchased={isPurchased.includes(book.id)}/>
+            <Book 
+            book={book} 
+            isPurchased={isPurchased.includes(book.id)}
+            session={session}
+            />
           </SessionProvider>
         ))}
       </main>

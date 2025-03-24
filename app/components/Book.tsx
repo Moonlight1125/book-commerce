@@ -2,24 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { contents } from "../lib/types/type";
+import { contents} from "../lib/types/type";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/navigation'
+import type { Session } from "next-auth"
 import Swal from 'sweetalert2'
 
 interface booktype{
   book:contents,
   isPurchased:boolean,
+  session:Session|null
 }
 
 
 // eslint-disable-next-line react/display-name
-const Book = ({book,isPurchased}:booktype) => {
+const Book = ({book,isPurchased,session}:booktype) => {
   const [modal,setModal] = useState<boolean>(false);
   const router = useRouter();
-  const {data:session,status} = useSession();
-  const isLogin = !!session?.user;
+  const isLogin = session?.user;
   useEffect(()=>{
     if(modal){
         document.body.style.overflow='hidden'
